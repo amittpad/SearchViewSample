@@ -11,17 +11,17 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     // Declare Variables
-    ListView list;
+    ListView listView;
     ListViewAdapter adapter;
-    SearchView editsearch;
+    SearchView searchView;
     String[] animalNameList;
-    ArrayList<AnimalNames> arraylist = new ArrayList<AnimalNames>();
+    ArrayList<AnimalNames> arrayList = new ArrayList<AnimalNames>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list = (ListView) findViewById(R.id.list_view);
-        editsearch = (SearchView) findViewById(R.id.search_view);
+        listView = (ListView) findViewById(R.id.list_view);
+        searchView = (SearchView) findViewById(R.id.search_view);
 
         animalNameList = new String[]{"Lion", "Tiger", "Dog",
                 "Cat", "Tortoise", "Rat", "Elephant", "Fox",
@@ -30,17 +30,17 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < animalNameList.length; i++) {
             AnimalNames animalNames = new AnimalNames(animalNameList[i]);
             // Binds all strings into an array
-            arraylist.add(animalNames);
+            arrayList.add(animalNames);
         }
 
-        adapter = new ListViewAdapter(this, arraylist);
+        adapter = new ListViewAdapter(this, arrayList);
 
         // Binds the Adapter to the ListView
-        if(list != null){
-            list.setAdapter(adapter);
+        if(listView != null){
+            listView.setAdapter(adapter);
         }
 
-        editsearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {

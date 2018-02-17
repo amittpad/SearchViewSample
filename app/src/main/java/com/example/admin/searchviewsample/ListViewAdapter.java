@@ -16,9 +16,6 @@ import java.util.Locale;
  */
 
 public class ListViewAdapter extends BaseAdapter {
-
-    // Declare Variables
-
     Context mContext;
     LayoutInflater inflater;
     private List<AnimalNames> animalNamesList = null;
@@ -34,7 +31,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     public class ViewHolder {
         TextView name;
-    }
+        }
 
     @Override
     public int getCount() {
